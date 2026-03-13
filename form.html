@@ -10,25 +10,69 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
+<style>
+
+body{
+background: linear-gradient(135deg,#007bff,#00c6ff);
+font-family: Arial, sans-serif;
+min-height:100vh;
+padding:40px;
+}
+
+.container{
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+h2{
+color:#007bff;
+font-weight:bold;
+text-align:center;
+margin-bottom:30px;
+}
+
+fieldset{
+border:2px solid #007bff;
+padding:20px;
+margin-top:20px;
+border-radius:8px;
+}
+
+legend{
+font-weight:bold;
+color:#007bff;
+padding:0 10px;
+}
+
+textarea{
+resize:none;
+}
+
+button{
+margin-top:10px;
+}
+
+</style>
 
 <script>
 
 function validateForm(){
 
-let name = document.getElementById("fullname").value;
-let email = document.getElementById("email").value;
-let telephone = document.getElementById("telephone").value;
+let name=document.getElementById("fullname").value;
+let email=document.getElementById("email").value;
+let phone=document.getElementById("telephone").value;
 
-let interests = document.querySelectorAll('input[name="interest"]:checked');
+let interests=document.querySelectorAll('input[name="interest"]:checked');
 
-if(name === "" || email === "" || telephone === ""){
-alert("Please fill in all required fields.");
+if(name===""||email===""||phone===""){
+alert("Please fill in all required fields");
 return false;
 }
 
-if(interests.length === 0){
-alert("Please select at least one area of interest.");
+if(interests.length===0){
+alert("Please select at least one area of interest");
 return false;
 }
 
@@ -40,13 +84,16 @@ return true;
 
 </head>
 
+
 <body>
 
-<div class="container mt-5">
+<div class="container">
 
-<h2 class="text-center mb-4">Job Application Form</h2>
+<h2>Job Application Form</h2>
 
 <form onsubmit="return validateForm()">
+
+<!-- PERSONAL INFO -->
 
 <fieldset>
 
@@ -55,19 +102,21 @@ return true;
 <label class="form-label">Full Name</label>
 <input type="text" id="fullname" class="form-control">
 
-<label class="form-label mt-2">Email</label>
+<label class="form-label mt-3">Email</label>
 <input type="email" id="email" class="form-control">
 
-<label class="form-label mt-2">Telephone</label>
+<label class="form-label mt-3">Telephone</label>
 <input type="text" id="telephone" class="form-control">
 
-<label class="form-label mt-2">Address</label>
+<label class="form-label mt-3">Physical Address</label>
 <input type="text" class="form-control">
 
 </fieldset>
 
 
-<fieldset class="mt-4">
+<!-- POSITION INFO -->
+
+<fieldset>
 
 <legend>Position Information</legend>
 
@@ -88,23 +137,23 @@ return true;
 <label class="form-label">Employment Type</label>
 
 <div class="form-check">
-<input type="radio" class="form-check-input" name="employment">
-<label class="form-check-label">Part-time contract</label>
+<input type="radio" name="employment" class="form-check-input">
+<label class="form-check-label">Part-time Contract</label>
 </div>
 
 <div class="form-check">
-<input type="radio" class="form-check-input" name="employment">
-<label class="form-check-label">Part-time permanent</label>
+<input type="radio" name="employment" class="form-check-input">
+<label class="form-check-label">Part-time Permanent</label>
 </div>
 
 <div class="form-check">
-<input type="radio" class="form-check-input" name="employment">
-<label class="form-check-label">Full-time contract</label>
+<input type="radio" name="employment" class="form-check-input">
+<label class="form-check-label">Full-time Contract</label>
 </div>
 
 <div class="form-check">
-<input type="radio" class="form-check-input" name="employment">
-<label class="form-check-label">Full-time permanent</label>
+<input type="radio" name="employment" class="form-check-input">
+<label class="form-check-label">Full-time Permanent</label>
 </div>
 
 </div>
@@ -112,54 +161,60 @@ return true;
 </fieldset>
 
 
-<fieldset class="mt-4">
+<!-- INTEREST -->
 
-<legend>Areas of Interest</legend>
+<fieldset>
+
+<legend>Area of Interest</legend>
 
 <div class="form-check">
-<input type="checkbox" class="form-check-input" name="interest">
+<input type="checkbox" name="interest" class="form-check-input">
 <label class="form-check-label">Account Executive</label>
 </div>
 
 <div class="form-check">
-<input type="checkbox" class="form-check-input" name="interest">
+<input type="checkbox" name="interest" class="form-check-input">
 <label class="form-check-label">Business Development</label>
 </div>
 
 <div class="form-check">
-<input type="checkbox" class="form-check-input" name="interest">
+<input type="checkbox" name="interest" class="form-check-input">
 <label class="form-check-label">Inside Sales</label>
 </div>
 
 <div class="form-check">
-<input type="checkbox" class="form-check-input" name="interest">
+<input type="checkbox" name="interest" class="form-check-input">
 <label class="form-check-label">Sales Manager</label>
 </div>
 
 <div class="form-check">
-<input type="checkbox" class="form-check-input" name="interest">
+<input type="checkbox" name="interest" class="form-check-input">
 <label class="form-check-label">VP Sales</label>
 </div>
 
 </fieldset>
 
 
-<fieldset class="mt-4">
+<!-- RELOCATION -->
+
+<fieldset>
 
 <legend>Relocation</legend>
 
 <div class="form-check">
-<input type="radio" class="form-check-input" name="relocate">
+<input type="radio" name="relocation" class="form-check-input">
 <label class="form-check-label">Yes</label>
 </div>
 
 <div class="form-check">
-<input type="radio" class="form-check-input" name="relocate">
+<input type="radio" name="relocation" class="form-check-input">
 <label class="form-check-label">No</label>
 </div>
 
 </fieldset>
 
+
+<!-- MESSAGE -->
 
 <div class="mt-4">
 
@@ -170,7 +225,9 @@ return true;
 </div>
 
 
-<div class="mt-4">
+<!-- BUTTONS -->
+
+<div class="mt-4 text-center">
 
 <button type="submit" class="btn btn-primary">Submit</button>
 
